@@ -1,9 +1,9 @@
 const express = require('express');
 
 const app = express();
-const port = 9944;
+const port = process.argv[0] || process.env.PORT || 9944;
 
-app.get('highscores/', (req, res) => {
+app.get('*', (req, res) => {
     res.send('Hello, world!');
 });
 
