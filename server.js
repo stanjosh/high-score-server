@@ -22,11 +22,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/highscore", (req, res) => {
+app.get("/highscores", (req, res) => {
     fs.createReadStream('./highscore.json').pipe(res);
 });
 
-app.post("/highscore", async (req, res) => {
+app.post("/highscores", async (req, res) => {
     var newScore = req.body;
     highScoreFile.push(newScore);
     fs.writeFile('./highscore.json', JSON.stringify(highScoreFile), (err) => {
